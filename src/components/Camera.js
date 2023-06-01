@@ -15,9 +15,9 @@ const Camera = () => {
     controlsRef.current.maxPolarAngle = Math.PI * 0.65; // Maximum angle (135 degrees)
 
     // Set the minimum and maximum distance for zooming
-    controlsRef.current.minDistance = 0; // Minimum distance (zoom in)
+    controlsRef.current.minDistance = -1000; // Minimum distance (zoom in)
     controlsRef.current.maxDistance = 300; // Maximum distance (zoom back to origin)
-    controlsRef.current.zoomSpeed = 4;
+    controlsRef.current.zoomSpeed = 10;
     // Make sure to call updateProjectionMatrix() if any properties of the camera are changed
     camera.updateProjectionMatrix();
   }, [camera]);

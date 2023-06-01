@@ -3,7 +3,7 @@ import { useMemo, useEffect, useRef } from 'react'
 import { Group, DirectionalLight, AmbientLight } from 'three'
 import * as THREE from 'three'
 
-const Title = () => {
+const Title = ({setIsLoading}) => {
   const groupRef = useRef()
 
   useEffect(() => {
@@ -22,19 +22,17 @@ const Title = () => {
       })
 
       groupRef.current.add(gltf.scene)
+      setIsLoading(false)
     })
   }, [])
 
   useEffect(() => {
     if (groupRef.current) {
-      const light1 = new THREE.DirectionalLight(0x999999, 0.5)
-      groupRef.current.add(light1)
+    
 
-      const light2 = new THREE.PointLight(0x999999, 0.2)
-      light2.position.set(100, -200, -100)
-      groupRef.current.add(light2)
+     
 
-      const ambientLight = new THREE.AmbientLight(0x999999, 0.5) 
+      const ambientLight = new THREE.AmbientLight(0x999999, 0.4) 
       groupRef.current.add(ambientLight)
     }
   }, [groupRef.current])
