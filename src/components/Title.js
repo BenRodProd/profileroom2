@@ -28,11 +28,12 @@ const Title = ({setIsLoading}) => {
 
   useEffect(() => {
     if (groupRef.current) {
+      const light1 = new THREE.DirectionalLight(0x999999, 0.5)
+      groupRef.current.add(light1)
+
     
 
-     
-
-      const ambientLight = new THREE.AmbientLight(0x999999, 0.4) 
+      const ambientLight = new THREE.AmbientLight(0x999999, 0.5) 
       groupRef.current.add(ambientLight)
     }
   }, [groupRef.current])
