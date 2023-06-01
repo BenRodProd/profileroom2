@@ -15,8 +15,9 @@ const Title = () => {
 
       gltf.scene.traverse((child) => {
         if (child.isMesh) {
-          child.material.side = THREE.DoubleSide // Optional: Set the material side if needed
-          child.material.emissive = new THREE.Color(0x000000) // Set the emissive color to black for a darker appearance
+          //child.material.side = THREE.DoubleSide // Optional: Set the material side if needed
+          // child.material.emissive = new THREE.Color(0x000000) // Set the emissive color to black for a darker appearance
+          child.material.precision = 'highp'; 
         }
       })
 
@@ -26,15 +27,14 @@ const Title = () => {
 
   useEffect(() => {
     if (groupRef.current) {
-      const light1 = new THREE.DirectionalLight(0x323aa8, 0.5) // Decrease the intensity of the directional light
-      light1.position.set(-100, 200, 100)
+      const light1 = new THREE.DirectionalLight(0x999999, 0.5)
       groupRef.current.add(light1)
 
-      const light2 = new THREE.PointLight(0xe5ff00, 0.2) // Decrease the intensity of the point light
+      const light2 = new THREE.PointLight(0x999999, 0.2)
       light2.position.set(100, -200, -100)
       groupRef.current.add(light2)
 
-      const ambientLight = new THREE.AmbientLight(0x323aa8, 1) // Use a darker color for the ambient light
+      const ambientLight = new THREE.AmbientLight(0x999999, 0.5) 
       groupRef.current.add(ambientLight)
     }
   }, [groupRef.current])
