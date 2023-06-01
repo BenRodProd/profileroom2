@@ -2,16 +2,15 @@
 
 import { forwardRef, Suspense, useImperativeHandle, useRef } from 'react'
 import { OrbitControls, PerspectiveCamera, View as ViewImpl } from '@react-three/drei'
+
 import { Three } from '@react-three/fiber'
-import dynamic from 'next/dynamic'
+
 
 export const Common = ({ color }) => (
   <Suspense fallback={null}>
-    {color && <color attach='background' args={[color]} />}
-    <ambientLight intensity={0.5} />
-    <pointLight position={[20, 30, 10]} intensity={1} />
-    <pointLight position={[-10, -10, -10]} color='blue' />
-    <PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+   
+    
+    <PerspectiveCamera makeDefault fov={30}  position={[-50, -60, 60]} rotation={[Math.PI / 2, 0, 0]} />
   </Suspense>
 )
 
